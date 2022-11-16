@@ -11,5 +11,4 @@
         width: 30vw;
         height: auto;
     }
-
-    </style>
+</style>

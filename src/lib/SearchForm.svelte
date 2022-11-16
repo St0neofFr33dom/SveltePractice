@@ -5,7 +5,7 @@
     let searchCategory = searchTerm[0]
     let types = ["normal","grass","fire","water","electricity","flying","bug","poison","rock","ground","fighting","psychic","ghost","ice","dragon","dark","steel","fairy"]
     let searchValue = ""
-    $: baseURL+searchCategory
+    $: fullUrl = baseURL+searchCategory+searchValue
 </script>
 
 <div class="searchForm">

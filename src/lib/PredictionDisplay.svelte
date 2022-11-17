@@ -40,8 +40,4 @@ import autoComplete from "../funcs/autoComplete";
     color:brown;
     cursor: pointer;
 }
-.active{
-    background-color: black;
-    color:white;
-}
 </style>

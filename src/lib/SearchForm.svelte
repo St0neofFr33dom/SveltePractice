@@ -1,10 +1,11 @@
 <script>
     import PredictionDisplay from "./PredictionDisplay.svelte"
     import capitalise from "../funcs/capitalise.js"
-    import autoComplete from "../funcs/autoComplete.js"
     import pokemonArray from "../data/pokemon.js"
     import abilityArray from "../data/abilities.js"
     import moveArray from "../data/moves.js"
+
+    export let dataList
 
     let baseURL = "https://pokeapi.co/api/v2/"
     let searchTerm = ["pokemon","type","ability","move"]
@@ -14,7 +15,8 @@
     let arraySelection = {pokemon:pokemonArray,ability:abilityArray,type:typeArray,move:moveArray}
     let focused = false
     
-    $: fullUrl = baseURL+searchCategory+searchValue
+    
+    $: fullUrl = baseURL+searchCategory+'/'+searchValue
 
     function handleChange(){
         searchValue = ""
@@ -23,6 +25,14 @@
     function addFocus(){
         focused = true
     }
+
+    async function getRequest(){
+        let response = await fetch(fullUrl)
+        let data = await response.json()
+        searchValue = ""
+        return dataList = {category:searchCategory, payload:data}
+    }
+
 </script>
 
 <div class="searchForm">
@@ -41,9 +51,7 @@
             <PredictionDisplay bind:searchValue={searchValue} {searchCategory} {arraySelection} bind:focused={focused}/>
         </div>
     </div>
-    <button on:click={()=>{
-        console.log(searchValue)
-    }}>Test</button>
+    <button on:click={getRequest}>Fetch</button>
 </div>
 
 <style>

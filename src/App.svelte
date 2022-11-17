@@ -19,7 +19,7 @@
   {#if !dataList}
   <HeroImage heroImage={defaultImage} />
   {:else}
-  <div>
+  <div class="selection">
     <PokemonList dataList={dataList} bind:individualData={individualData}/>
     <HeroImage heroImage={fetchedImage} />
   </div>
@@ -28,5 +28,9 @@
 </main>
 
 <style>
-
+  .selection{
+    display:flex;
+    width: 80vw;
+    height: 50vw
+  }
 </style>

@@ -1,3 +1,4 @@
+const abilities = [
 "stench", 
 "drizzle", 
 "speed-boost", 
@@ -325,3 +326,6 @@
 "shackle", 
 "decoy", 
 "shield", 
+]
+
+export default abilities

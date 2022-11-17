@@ -1,3 +1,4 @@
+const pokemon = [
 "bulbasaur", 
 "ivysaur", 
 "venusaur", 
@@ -1152,3 +1153,6 @@
 "basculin-white-striped", 
 "basculegion-female", 
 "enamorus-therian", 
+]
+
+export default pokemon

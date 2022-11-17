@@ -1,3 +1,4 @@
+const moves = [
 "pound", 
 "karate-chop", 
 "double-slap", 
@@ -842,3 +843,6 @@
 "shadow-panic", 
 "shadow-shed", 
 "shadow-sky", 
+]
+
+export default moves

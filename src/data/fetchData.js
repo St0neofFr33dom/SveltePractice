@@ -6,7 +6,7 @@ async function fetchMoves(){
     const results = response.data.results
     let fileBody = ""
     for (let i = 0; i< results.length; i++){
-        fileBody += `${results[i].name} \n`
+        fileBody += `\"${results[i].name}\", \n`
     }
     fs.writeFile('moves.txt',fileBody,function (err){
         if (err) {
@@ -23,7 +23,7 @@ async function fetchAbilities(){
     const results = response.data.results
     let fileBody = ""
     for (let i = 0; i< results.length; i++){
-        fileBody += `${results[i].name} \n`
+        fileBody += `\"${results[i].name}\", \n`
     }
     fs.writeFile('abilities.txt',fileBody,function (err){
         if (err) {
@@ -40,7 +40,7 @@ async function fetchPokemon(){
     const results = response.data.results
     let fileBody = ""
     for (let i = 0; i< results.length; i++){
-        fileBody += `${results[i].name} \n`
+        fileBody += `\"${results[i].name}\", \n`
     }
     fs.writeFile('pokemon.txt',fileBody,function (err){
         if (err) {

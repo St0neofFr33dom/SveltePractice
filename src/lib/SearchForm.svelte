@@ -1,4 +1,5 @@
 <script>
+    import PredictionDisplay from "./PredictionDisplay.svelte"
     import capitalise from "../funcs/capitalise.js"
     import autoComplete from "../funcs/autoComplete.js"
     import pokemonArray from "../data/pokemon.js"
@@ -11,11 +12,16 @@
     let typeArray = ["normal","grass","fire","water","electricity","flying","bug","poison","rock","ground","fighting","psychic","ghost","ice","dragon","dark","steel","fairy"]
     let searchValue = ""
     let arraySelection = {pokemon:pokemonArray,ability:abilityArray,type:typeArray,move:moveArray}
-    $: predictedArray = (searchValue.length > 1) ? autoComplete(searchValue,arraySelection[searchCategory]) : []
+    let focused = false
+    
     $: fullUrl = baseURL+searchCategory+searchValue
 
     function handleChange(){
         searchValue = ""
+    }
+
+    function addFocus(){
+        focused = true
     }
 </script>
 
@@ -31,18 +37,13 @@
     <div>
         <label for="searchBar">{capitalise(searchCategory)}:</label>
         <div class="barAndAutoComplete">
-            <input id="searchBar" bind:value={searchValue}/>
-            {#if searchValue.length > 1}
-            {#each predictedArray as suggestion}
-                <div>{suggestion}</div>
-            {/each}
-        {/if}
+            <input id="searchBar" bind:value={searchValue} on:focus={addFocus}/>
+            <PredictionDisplay bind:searchValue={searchValue} {searchCategory} {arraySelection} bind:focused={focused}/>
         </div>
     </div>
     <button on:click={()=>{
         console.log(searchValue)
-        console.log(predictedArray)}
-    }>Test</button>
+    }}>Test</button>
 </div>
 
 <style>

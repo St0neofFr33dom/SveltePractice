@@ -7,7 +7,6 @@ export default function autoComplete(value,array){
             matchedWord += array[i].substr(value.length);
             predictedArray.push(matchedWord)
         }
-        if (predictedArray.length >= 5){return predictedArray}
     }
     return predictedArray
 }

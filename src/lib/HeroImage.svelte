@@ -8,7 +8,7 @@
 
 <style>
     img{
-        width: 30vw;
+        width:50%;
         height: auto;
-    }
+        }
 </style>

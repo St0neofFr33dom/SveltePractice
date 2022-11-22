@@ -1,5 +1,5 @@
 <script>
-  export let dataList;
+  export let dataList = {category:"blank"};
   export let individualData;
 
   async function getRequest(e) {
@@ -13,6 +13,7 @@
     individualData = dataList.payload;
   }
 </script>
+
 
 <div class="pokemonList">
   {#if dataList.category === "type"}
@@ -33,6 +34,8 @@
     {/each}
   {:else if dataList.category === "pokemon"}
     <div>{individualData.name}</div>
+  {:else}
+  <div>Who's that pokemon?</div>
   {/if}
 </div>
 

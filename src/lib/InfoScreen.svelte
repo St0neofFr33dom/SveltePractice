@@ -1,18 +1,25 @@
 <script>
+    import PokemonBaseStats from "./PokemonBaseStats.svelte";
     import capitalise from "../funcs/capitalise";
+    import dbTypeColours from "../data/typeColours";
     export let data
+
+    function getcolour(type, colourObject){
+        return colourObject[type]
+    }
 </script>
 
 
 <div class="infoScreen">
     <h2>{capitalise(data.name)}</h2>
-    <div class="statsScreen">
-        {#each data.stats as statBlock}
-        <div class="statBlock">
-            <div style="width:50%">{statBlock.stat.name}</div>
-            <div style="width:50%">{statBlock.base_stat}</div>
+    <PokemonBaseStats stats={data.stats}/>
+    <div class="types-display">
+        <h2>Types</h2>
+        <div class="types">
+            {#each data.types as type}
+                <h3 class="type" style={`background-color: ${getcolour(type.type.name,dbTypeColours)}`}>{type.type.name}</h3>
+            {/each}
         </div>
-        {/each}
     </div>
 </div>
 
@@ -23,10 +30,18 @@
         height:100%;
 
     }
-    .statBlock{
-        display:flex;
+    .types-display{
+        width: 30%;
         text-align: center;
-        gap: 1em;
-        border: 1px black solid
+        align-items: center;
     }
+    .types{
+        display: flex;
+        flex-direction: row;
+    }
+    .type{
+        padding: 0.5em;
+        border-radius: 50%;
+    }
+    
 </style>

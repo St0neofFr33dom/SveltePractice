@@ -2,7 +2,7 @@
   import HeroImage from "./lib/HeroImage.svelte";
   import PokemonList from "./lib/PokemonList.svelte";
   import SearchForm from "./lib/SearchForm.svelte";
-  import InfoScreen from "./lib/InfoScreen.svelte"
+  import InfoScreen from "./lib/PokemonInfoScreen/InfoScreen.svelte"
 
   let dataList;
   let individualData;

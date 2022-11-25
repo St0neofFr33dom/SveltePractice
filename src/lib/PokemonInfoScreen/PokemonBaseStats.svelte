@@ -1,6 +1,6 @@
 <script>
     export let stats
-    import capitalise from "../funcs/capitalise";
+    import capitalise from "../../funcs/capitalise";
 
     function setTab(string){
         if(string.includes("special")){

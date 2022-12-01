@@ -31,9 +31,8 @@
   </div>
   <div class="info-panel">
     {#if !individualData}
-      <HeroImage heroImage={defaultImage} />
+      <img src={defaultImage.url} alt={defaultImage.alt} class="start-image"/>
     {:else}
-      <HeroImage heroImage={fetchedImage} />
       <InfoScreen data={individualData}/>
     {/if}
   </div>
@@ -41,18 +40,29 @@
 
 <style>
   main{
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    gap:3em;
+    justify-content: space-around;
+  }
+  h1{
+    padding: 0;
+    margin: 0;
   }
   .selection {
     display: flex;
     width: 80vw;
-    height: 30vh
+    height:50vh;
+    padding: 1rem 0;
   }
   .info-panel{
     display: flex;
     width: 80vw;
+    height:40vw;
+    justify-content: center;
+    align-items: center;
+  }
+  .start-image{
+    width:20vw;
+    height:20vw
   }
 </style>

@@ -19,18 +19,18 @@ function getcolour(type, colourObject){
 
 <style>
     .types-display{
-        width: 40%;
+        width: 20%;
         text-align: center;
         align-items: center;
     }
     .types{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
     .type{
         padding: 0.5em;
         margin: 0.5em;
         border-radius: 50%;
-        width:45%;
+        width:90%;
     }
 </style>

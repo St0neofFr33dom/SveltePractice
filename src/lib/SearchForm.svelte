@@ -58,32 +58,36 @@
 </script>
 
 <div class="searchForm">
-  <div>
-    <label for="searchTerms">Search By:</label>
-    <select
-      bind:value={searchCategory}
-      name="searchTerms"
-      id="searchTerms"
-      on:change={handleChange}
-    >
-      {#each searchTerm as term}
-        <option value={term}>{capitalise(term)}</option>
-      {/each}
-    </select>
-  </div>
+  <div class="top-half">
+    <div>
+      <label for="searchTerms">Search By:</label>
+      <select
+        bind:value={searchCategory}
+        name="searchTerms"
+        id="searchTerms"
+        on:change={handleChange}
+      >
+        {#each searchTerm as term}
+          <option value={term}>{capitalise(term)}</option>
+        {/each}
+      </select>
+    </div>
   <div>
     <label for="searchBar">{capitalise(searchCategory)}:</label>
 
     <input id="searchBar" bind:value={searchValue} on:focus={addFocus} />
   </div>
-  <PredictionDisplay
-    bind:searchValue
-    {searchCategory}
-    {arraySelection}
-    bind:focused
-  />
+</div>
+  <div class="bottom-half">
+    <PredictionDisplay
+      bind:searchValue
+      {searchCategory}
+      {arraySelection}
+      bind:focused
+    />
 
-  <button on:click={getRequest}>Fetch</button>
+    <button on:click={getRequest}>Fetch</button>
+  </div>
 </div>
 
 <style>
@@ -91,9 +95,23 @@
     display: flex;
     flex-direction: column;
     padding: 1em;
-    gap: 1em;
+    gap: 0.5em;
     border: black 2px solid;
-    width: 50%;
+    width: 70%;
     height: 100%;
+  }
+  .top-half {
+    display: flex;
+    flex-direction: row;
+  }
+  .bottom-half {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height:70%;
+  }
+  .bottom-half > button {
+    height: 1.5rem;
+    align-self: center;
   }
 </style>

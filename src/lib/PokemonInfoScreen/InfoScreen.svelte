@@ -2,38 +2,55 @@
     import PokemonBaseStats from "./PokemonBaseStats.svelte";
     import PokemonTypes from "./PokemonTypes.svelte";
     import capitalise from "../../funcs/capitalise";
-    import dbTypeColours from "../../data/typeColours";
+    import PokemonAbilities from "./PokemonAbilities.svelte";
     export let data
 
-    function getcolour(type, colourObject){
-        return colourObject[type]
-    }
+    $: url = data["sprites"]["other"]["home"]["front_default"]
 </script>
 
 
 <div class="infoScreen">
-    <h2>{capitalise(data.name)}</h2>
-    <PokemonBaseStats stats={data.stats}/>
-    <PokemonTypes types={data.types} />
-    <div class="dimensions">
-        <div class="tab">
-            <h3>Avg. Height:</h3>
-            <h3>{data.height / 10}m</h3>
-        </div>
-        <div class="tab">
-            <h3>Avg. Weight:</h3>
-            <h3>{data.weight / 10}kg</h3>
-        </div>
+    <div class="picture">
+        <h2>{capitalise(data.name)}</h2>
+        <img src={url} alt={data.name} title={data.name}/>
     </div>
+        <PokemonBaseStats stats={data.stats}/>
+        <PokemonTypes types={data.types} />
+        <div class="dimensions">
+            <div class="tab">
+                <h3>Avg. Height:</h3>
+                <h3>{data.height / 10}m</h3>
+            </div>
+            <div class="tab">
+                <h3>Avg. Weight:</h3>
+                <h3>{data.weight / 10}kg</h3>
+            </div>
+        </div>
+        <PokemonAbilities abilities={data.abilities}/>
 </div>
 
 
 <style>
     .infoScreen{
-        width:50%;
+        width:100%;
         height:100%;
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .picture {
+        width: 30%;
+        background-color: aquamarine;
+        border: solid 1px black;
+    }
+    .picture > h2{
+        padding: 0;
+        margin: 0;
+    }
+    .picture > img{
+        width: 100%;
+        padding: 1rem 0;
     }
     .dimensions{
         display: flex;

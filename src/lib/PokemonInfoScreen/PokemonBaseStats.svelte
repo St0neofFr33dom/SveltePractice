@@ -24,9 +24,6 @@
 </div>
 
 <style>
-    .statsScreen{
-        width:35%
-    }
  .statBlock{
         display:flex;
         text-align: center;

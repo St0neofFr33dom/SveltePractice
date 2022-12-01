@@ -43,6 +43,6 @@
     .pokemonList{
         overflow-y: scroll;
         height: 100%;
-        width:50%
+        width:30%
     }
 </style>

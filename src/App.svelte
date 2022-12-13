@@ -43,6 +43,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 1rem;
   }
   h1{
     padding: 0;
@@ -51,8 +52,7 @@
   .selection {
     display: flex;
     width: 80vw;
-    height:50vh;
-    padding: 1rem 0;
+    height:30vh;
   }
   .info-panel{
     display: flex;

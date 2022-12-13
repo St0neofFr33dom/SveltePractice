@@ -28,16 +28,16 @@ import autoComplete from "../funcs/autoComplete";
 .predictions{
     display: flex;
     flex-direction: column;
-    gap: 0;
         width:50%;
-        height: 100%;
+        height: 70%;
         overflow-y: scroll;
         border: 1px black solid;
 }
 .suggestion{
     width: 100%;
     height: 25%;
-    font-size: 80%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
 }
 .suggestion:hover{
     background-color: cadetblue;

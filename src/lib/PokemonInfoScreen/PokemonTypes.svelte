@@ -2,6 +2,7 @@
  export let types
 
 import dbTypeColours from "../../data/typeColours";
+import capitalise from "../../funcs/capitalise";
 
 function getcolour(type, colourObject){
         return colourObject[type]
@@ -12,25 +13,27 @@ function getcolour(type, colourObject){
     <h2>Types</h2>
     <div class="types">
         {#each types as type}
-            <h3 class="type" style={`background-color: ${getcolour(type.type.name,dbTypeColours)}`}>{type.type.name}</h3>
+            <h3 class="type" style={`background-color: ${getcolour(type.type.name,dbTypeColours)}`}>{capitalise(type.type.name)}</h3>
         {/each}
     </div>
 </div>
 
 <style>
     .types-display{
-        width: 20%;
+        width: fit-content;
+        padding: 0 0.25rem;
         text-align: center;
         align-items: center;
+        border: black solid 1px;
     }
     .types{
         display: flex;
         flex-direction: column;
     }
     .type{
-        padding: 0.5em;
-        margin: 0.5em;
-        border-radius: 50%;
-        width:90%;
+        border-radius: 20%;
+        width:80%;
+        padding: 0.2rem;
+        margin: 0.2rem;
     }
 </style>

@@ -24,9 +24,14 @@
 </div>
 
 <style>
+    .statsScreen{
+        border: black solid 1px;
+        padding: 0.2rem;
+    }
  .statBlock{
         display:flex;
         text-align: center;
+        padding:0.2rem;
         gap: 1em;
         border: 1px black solid;
     }

@@ -5,13 +5,11 @@
     async function fetchData(url){
         let response = await fetch(url)
         let data = await response.json()
-        console.log(data)
         let abilityText = data["effect_entries"].filter((entry)=>{
             if (entry.language.name === "en"){
                 return true
             } else {return false}
         })
-        console.log(abilityText)
         fetchedData = abilityText[0]["short_effect"]
         return
     }
@@ -29,7 +27,8 @@
 
 <style>
     .container{
-        max-width: 30%
+        max-width: 30%;
+        border: black solid 1px;
     }
     .block{
         display: flex;

@@ -9,11 +9,12 @@
 </script>
 
 
-<div class="infoScreen">
+<div class="pokeDex">
     <div class="picture">
         <h2>{capitalise(data.name)}</h2>
         <img src={url} alt={data.name} title={data.name}/>
     </div>
+    <div class="infoScreen">
         <PokemonBaseStats stats={data.stats}/>
         <PokemonTypes types={data.types} />
         <div class="dimensions">
@@ -27,20 +28,29 @@
             </div>
         </div>
         <PokemonAbilities abilities={data.abilities}/>
+    </div>
 </div>
 
 
 <style>
-    .infoScreen{
+    .pokeDex{
         width:100%;
+        height:100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .infoScreen{
+        width:70%;
         height:100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1rem;
+        border: black solid 1px;
     }
     .picture {
         width: 30%;
+        height: 100%;
         background-color: aquamarine;
         border: solid 1px black;
     }

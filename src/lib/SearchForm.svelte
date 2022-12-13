@@ -78,7 +78,7 @@
     <input id="searchBar" bind:value={searchValue} on:focus={addFocus} />
   </div>
 </div>
-  <div class="bottom-half">
+
     <PredictionDisplay
       bind:searchValue
       {searchCategory}
@@ -87,31 +87,24 @@
     />
 
     <button on:click={getRequest}>Fetch</button>
-  </div>
+
 </div>
 
 <style>
   .searchForm {
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    align-items: center;
     gap: 0.5em;
-    border: black 2px solid;
+    border: black 1px solid;
     width: 70%;
     height: 100%;
   }
   .top-half {
     display: flex;
     flex-direction: row;
+    gap: 0.5rem;
+    margin: 0.25rem 0;
   }
-  .bottom-half {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height:70%;
-  }
-  .bottom-half > button {
-    height: 1.5rem;
-    align-self: center;
-  }
+
 </style>
